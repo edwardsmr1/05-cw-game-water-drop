@@ -3,23 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Drop Game</title>
+    <title>Water Quest | Cyberpunk Edition</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Confetti Library for Win Celebration LevelUp -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+
     <div class="game-wrapper">
-        <h1 class="game-title">Water Drop</h1>
-        <p class="game-tagline">Catch the good drops, avoid the bad ones!</p>
-        <div class="score-panel">
-            <div class="score">Score: <span id="score">0</span></div>
-            <div class="timer">Time: <span id="time">30</span>s</div>
-            <button id="start-btn">Start Game</button>
+        <header>
+            <h1>WATER QUEST <span class="accent">AMPED</span></h1>
+            <p>Secure the clean water supply. Avoid contaminated drops.</p>
+        </header>
+
+        <div class="scoreboard">
+            <div class="stat-box">Score: <span id="score-val">0</span> / 15</div>
+            <div class="stat-box">Time: <span id="timer-val">30</span>s</div>
         </div>
-        
+
+        <!-- Game Play Area -->
         <div id="game-container">
+            <div id="start-screen" class="overlay-screen">
+                <h2>SYSTEM READY</h2>
+                <button id="start-btn" class="cyber-btn">INITIALIZE GAME</button>
+            </div>
+            
+            <div id="game-over-screen" class="overlay-screen hidden">
+                <h2 id="end-title">MISSION COMPLETE</h2>
+                <p id="end-message">Final Score: <span id="final-score">0</span></p>
+                <button id="reset-btn" class="cyber-btn">RESTART PROTOCOL</button>
+            </div>
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
