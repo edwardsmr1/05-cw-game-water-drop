@@ -26,7 +26,7 @@ resetBtn.addEventListener("click", resetGame);
 function startGame() {
     if (gameRunning) return;
 
-    // Reset variables & UI states
+    // Reset state variables & UI
     gameRunning = true;
     score = 0;
     timeLeft = 30;
@@ -57,7 +57,7 @@ function createDrop() {
 
     const drop = document.createElement("div");
     
-    // 25% chance to spawn an obstacle (bad drop) for the Challenge LevelUp
+    // 25% chance to spawn a contaminated drop (Challenge / Obstacle LevelUp)
     const isObstacle = Math.random() < 0.25;
     
     if (isObstacle) {
@@ -88,11 +88,11 @@ function createDrop() {
         if (!gameRunning) return;
 
         if (isObstacle) {
-            // Penalty for hitting bad drop
+            // Penalty for clicking dirty water
             score = Math.max(0, score - 2);
-            triggerFlash('#ff003c');
+            triggerFlash('#BF6C46');
         } else {
-            // Reward for clean water drop
+            // Reward for collecting clean water
             score += 1;
         }
         
@@ -116,27 +116,27 @@ function endGame(won) {
     clearInterval(dropMaker);
     clearInterval(timerInterval);
 
-    // Clean up any remaining falling elements on screen
+    // Clean up active falling items
     document.querySelectorAll(".water-drop, .bad-drop").forEach(el => el.remove());
 
     // Show Game Over / Results Screen
     finalScore.textContent = score;
     if (won) {
         endTitle.textContent = "MISSION SUCCESS";
-        endMessage.innerHTML = `Supplies secured! Final Score: <span id="final-score">${score}</span>`;
+        endMessage.innerHTML = `Clean water supplied! Final Score: <span id="final-score">${score}</span>`;
         
-        // Celebrate Wins LevelUp (Confetti effect)
+        // Celebrate Wins LevelUp (Confetti effect using official brand accent colors)
         if (typeof confetti === 'function') {
             confetti({
-                particleCount: 120,
-                spread: 80,
+                particleCount: 130,
+                spread: 90,
                 origin: { y: 0.6 },
-                colors: ['#ff003c', '#ffffff', '#8b8b9e']
+                colors: ['#FFC907', '#003366', '#BF6C46']
             });
         }
     } else {
-        endTitle.textContent = "MISSION FAILED";
-        endMessage.innerHTML = `Time expired. Final Score: <span id="final-score">${score}</span>`;
+        endTitle.textContent = "TIME EXPIRED";
+        endMessage.innerHTML = `Keep fighting for clean water. Final Score: <span id="final-score">${score}</span>`;
     }
 
     gameOverScreen.classList.remove("hidden");
@@ -147,10 +147,10 @@ function resetGame() {
     startGame();
 }
 
-// Visual flash feedback helper when clicking bad drops
+// Visual flash feedback helper when clicking obstacles
 function triggerFlash(color) {
     gameContainer.style.borderColor = color;
     setTimeout(() => {
-        gameContainer.style.borderColor = "var(--neon-red)";
+        gameContainer.style.borderColor = "var(--cw-blue)";
     }, 200);
 }

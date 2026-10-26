@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Quest | Cyberpunk Edition</title>
+    <title>Water Quest | charity: water</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Confetti Library for Win Celebration LevelUp -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
@@ -11,9 +11,14 @@
 <body>
 
     <div class="game-wrapper">
+        <!-- Official Brand Logo Lockup Placement (Negative Space / High Legibility) -->
         <header>
-            <h1>WATER QUEST <span class="accent">AMPED</span></h1>
-            <p>Secure the clean water supply. Avoid contaminated drops.</p>
+            <div class="brand-logo">
+                <span class="jerry-can-icon">🪣</span> 
+                <span class="logo-text">charity: water</span>
+            </div>
+            <h1>Water Quest</h1>
+            <p>Provide clean water. Avoid contaminated sources.</p>
         </header>
 
         <div class="scoreboard">
@@ -24,14 +29,14 @@
         <!-- Game Play Area -->
         <div id="game-container">
             <div id="start-screen" class="overlay-screen">
-                <h2>SYSTEM READY</h2>
-                <button id="start-btn" class="cyber-btn">INITIALIZE GAME</button>
+                <h2>READY TO PLAY?</h2>
+                <button id="start-btn" class="brand-btn">START MISSION</button>
             </div>
             
             <div id="game-over-screen" class="overlay-screen hidden">
                 <h2 id="end-title">MISSION COMPLETE</h2>
                 <p id="end-message">Final Score: <span id="final-score">0</span></p>
-                <button id="reset-btn" class="cyber-btn">RESTART PROTOCOL</button>
+                <button id="reset-btn" class="brand-btn">PLAY AGAIN</button>
             </div>
         </div>
     </div>
