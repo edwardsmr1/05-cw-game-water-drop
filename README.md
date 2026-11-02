@@ -1,46 +1,27 @@
-# charity: water – Water Drop Game Starter
-In this game, users collect as many falling water drops as possible. Users tap to collect drops before they hit the ground. You’ll be working from a partially built version of the game. Some functionality is already provided, and your job is to complete the rest.
+# charity: water – Water Quest
 
-## What’s Already Done
+Water Quest is a short browser game about collecting clean water and avoiding contaminated drops.
 
-The starter files already include:
+## How to play
 
-- A **heading and tagline**
-- A **start button**
-- A **game container** where water drops appear
-- A **placeholder timer and score** (not functional yet)
-- A **logo image** from charity: water
-- Working code that:
-  - Starts the game when the start button is clicked
-  - Makes water drops fall randomly at different sizes
+- Choose Easy, Normal, or Hard before starting. The selected mode sets the timer, score goal, drop speed, spawn rate, obstacle chance, and milestones.
+- Click or keyboard-activate clean drops for **+1 point**.
+- Avoid contaminated drops; clicking one costs **2 points** (the score cannot go below zero).
+- Reach the mode's goal before time runs out to win.
+- Play again to retry the selected mode or choose another difficulty.
 
-## What You Need to Add
+| Difficulty | Time | Goal | Drop interval | Fall duration | Contaminated drops |
+|---|---:|---:|---:|---:|---:|
+| Easy | 40 seconds | 15 points | 1,100 ms | 4.5 seconds | 15% |
+| Normal | 30 seconds | 20 points | 900 ms | 3.5 seconds | 25% |
+| Hard | 25 seconds | 25 points | 750 ms | 2.7 seconds | 35% |
 
-Here’s what you're required to implement to bring the game to life:
+Wins and losses display a randomly selected motivational message. LevelUps include synthesized sound effects, score milestone pop-ups, and a confetti celebration on wins. Sound effects use the browser's Web Audio API when supported.
 
-### Game Functionality
+## Branding and links
 
-- **Update the score**
-  - +1 point for each drop clicked  
+The page uses the supplied charity: water logo and brand colors, with responsive layout rules. The footer links to [charity: water](https://www.charitywater.org/) and its [donation page](https://www.charitywater.org/donate).
 
-- **Add a 30-second timer**
-  - When the timer reaches 0, the game ends  
+## Run locally
 
-- **Display a message when the game ends**
-  - If the player scores **20 or more points**, show a **winning** message  
-  - If the player scores **less than 20 points**, show a **"try again"** message  
-  - Create one array of possible winning messages and one array of losing messages
-  - Depending on whether the user wins or loses, randomly pick and display a message from the appropriate array
-
-### Visual Styling
-
-- **Add charity: water branding**
-  
-  - Use the provided logo  
-  - Use the [charity: water brand guidelines](https://drive.google.com/file/d/1ct4zYRIwHAtxoNQoeaVwWYPdnruSC6sr/view) to stay on-brand with colors and styling
-  - Add styling rules to ensure your game layout adjusts well across different screen sizes
-
-
-These are the minimum requirements, but if you'd like an additional challenge go ahead and give the LevelUps a shot! For example, you can set up logic to make some of the drops "bad" drops that remove points if the user click them, complete with a different color to distinguish them from "good" drops. Have fun and make the game your own!
-
-If you have any questions or need any assistance with your code, reach out to the HelpHub or attend a Drop-In Hour. You got this!!
+Open `index.html` in a modern browser. No build step is required.

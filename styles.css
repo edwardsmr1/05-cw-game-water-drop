@@ -20,7 +20,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
+    padding: 16px 0;
+    overflow-x: hidden;
 }
 
 .game-wrapper {
@@ -38,24 +39,15 @@ header {
     width: 100%;
 }
 
-/* Official Logo Lockup Styling matching brand guide standards */
 .brand-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    display: inline-flex;
     margin-bottom: 8px;
 }
 
-.jerry-can-icon {
-    font-size: 1.2rem;
-}
-
-.logo-text {
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    font-size: 1rem;
-    color: var(--cw-dark);
+.brand-logo img {
+    display: block;
+    width: min(250px, 70vw);
+    height: auto;
 }
 
 header h1 {
@@ -68,6 +60,29 @@ header p {
     font-size: 0.9rem;
     color: #555;
     margin-top: 4px;
+}
+
+.game-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: var(--cw-blue);
+    font-weight: 700;
+}
+
+.game-controls select {
+    border: 2px solid var(--cw-blue);
+    border-radius: 6px;
+    background: #ffffff;
+    color: var(--cw-blue);
+    padding: 7px 10px;
+    font: inherit;
+}
+
+.game-controls select:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .scoreboard {
@@ -126,6 +141,18 @@ header p {
     letter-spacing: 0.5px;
 }
 
+.overlay-screen p {
+    max-width: 85%;
+    margin: 0 0 18px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.overlay-screen .final-score {
+    margin-top: -8px;
+    font-weight: 700;
+}
+
 .brand-btn {
     background: var(--cw-yellow);
     color: var(--cw-dark);
@@ -145,6 +172,61 @@ header p {
     transform: translateY(-2px);
 }
 
+.brand-btn:focus-visible,
+.game-controls select:focus-visible,
+footer a:focus-visible,
+.water-drop:focus-visible,
+.bad-drop:focus-visible {
+    outline: 3px solid var(--cw-orange-penalty);
+    outline-offset: 3px;
+}
+
+.milestone-popup {
+    position: absolute;
+    z-index: 5;
+    top: 16px;
+    left: 50%;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    padding: 10px 16px;
+    border-radius: 6px;
+    background: var(--cw-yellow);
+    color: var(--cw-dark);
+    font-weight: 700;
+    text-align: center;
+    opacity: 0;
+    transform: translate(-50%, -10px);
+    transition: opacity 180ms ease, transform 180ms ease;
+    pointer-events: none;
+}
+
+.milestone-popup.visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.penalty-flash {
+    border-color: var(--cw-orange-penalty) !important;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--cw-blue);
+    font-weight: 700;
+}
+
+footer a:hover {
+    color: #005a9c;
+}
+
 /* Water Drops & Obstacles */
 .water-drop, .bad-drop {
     position: absolute;
@@ -153,6 +235,7 @@ header p {
     cursor: pointer;
     animation-name: fall;
     animation-timing-function: linear;
+    padding: 0;
 }
 
 /* Clean Water Drop (Jerry Can Yellow Branding) */
@@ -175,5 +258,33 @@ header p {
     }
     100% {
         transform: translateY(520px);
+    }
+}
+
+@media (max-width: 480px) {
+    .game-wrapper {
+        padding: 16px;
+    }
+
+    .scoreboard {
+        font-size: 0.95rem;
+    }
+
+    .stat-box {
+        padding: 7px 10px;
+    }
+
+    #game-container {
+        height: min(450px, 55vh);
+        min-height: 300px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

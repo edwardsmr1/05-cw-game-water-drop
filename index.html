@@ -11,34 +11,49 @@
 <body>
 
     <div class="game-wrapper">
-        <!-- Official Brand Logo Lockup Placement (Negative Space / High Legibility) -->
         <header>
-            <div class="brand-logo">
-                <span class="jerry-can-icon">🪣</span> 
-                <span class="logo-text">charity: water</span>
-            </div>
+            <a class="brand-logo" href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer" aria-label="charity: water home">
+                <img src="img/cw_logo-horizontal.png" alt="charity: water">
+            </a>
             <h1>Water Quest</h1>
             <p>Provide clean water. Avoid contaminated sources.</p>
         </header>
 
-        <div class="scoreboard">
-            <div class="stat-box">Score: <span id="score-val">0</span> / 15</div>
-            <div class="stat-box">Time: <span id="timer-val">30</span>s</div>
+        <div class="game-controls">
+            <label for="difficulty-select">Difficulty</label>
+            <select id="difficulty-select">
+                <option value="easy">Easy</option>
+                <option value="normal" selected>Normal</option>
+                <option value="hard">Hard</option>
+            </select>
         </div>
 
-        <!-- Game Play Area -->
-        <div id="game-container">
+        <div class="scoreboard" aria-label="Game status">
+            <div class="stat-box">Score: <span id="score-val" aria-live="polite">0</span> / <span id="target-val">20</span></div>
+            <div class="stat-box">Time: <span id="timer-val" aria-live="polite">30</span>s</div>
+        </div>
+
+        <div id="game-container" aria-label="Game area">
             <div id="start-screen" class="overlay-screen">
                 <h2>READY TO PLAY?</h2>
+                <p>Collect clean water and avoid contaminated drops.</p>
                 <button id="start-btn" class="brand-btn">START MISSION</button>
             </div>
             
             <div id="game-over-screen" class="overlay-screen hidden">
                 <h2 id="end-title">MISSION COMPLETE</h2>
-                <p id="end-message">Final Score: <span id="final-score">0</span></p>
+                <p id="end-message" aria-live="polite">Keep making waves!</p>
+                <p class="final-score">Final score: <span id="final-score">0</span></p>
                 <button id="reset-btn" class="brand-btn">PLAY AGAIN</button>
             </div>
+            <div id="milestone-popup" class="milestone-popup" role="status" aria-live="polite"></div>
         </div>
+
+        <footer>
+            <a href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer">Visit charity: water</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://www.charitywater.org/donate" target="_blank" rel="noopener noreferrer">Donate to clean water</a>
+        </footer>
     </div>
 
     <script src="script.js"></script>
