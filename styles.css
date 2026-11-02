@@ -235,7 +235,9 @@ footer a:hover {
     cursor: pointer;
     animation-name: fall;
     animation-timing-function: linear;
+    appearance: none;
     padding: 0;
+    line-height: 0;
 }
 
 /* Clean Water Drop (Jerry Can Yellow Branding) */
